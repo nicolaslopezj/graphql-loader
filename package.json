@@ -1,0 +1,32 @@
+{
+  "name": "graphql-loader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://github.com/orionsoft/module",
+  "author": "nicolaslopezj",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib",
+    "prepublish": "npm run build",
+    "test": "npm run lint && jest",
+    "watch": "watch npm\\ run\\ build ./src",
+    "test-watch": "jest --watch",
+    "lint": "standard \"src/**/*.js\""
+  },
+  "devDependencies": {
+    "babel-cli": "6.5.1",
+    "babel-eslint": "^7.0.0",
+    "babel-jest": "^15.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "eslint": ">=3.0.0",
+    "jest-cli": "^15.1.1",
+    "standard": "*"
+  },
+  "dependencies": {
+    "autobind-decorator": "^1.3.4",
+    "lodash": "^4.17.3"
+  }
+}
