@@ -1,7 +1,7 @@
 {
   "name": "graphql-loader",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "http://github.com/orionsoft/module",
   "author": "nicolaslopezj",
   "license": "MIT",
@@ -12,6 +12,12 @@
     "watch": "watch npm\\ run\\ build ./src",
     "test-watch": "jest --watch",
     "lint": "standard \"src/**/*.js\""
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib"
+    ]
   },
   "devDependencies": {
     "babel-cli": "6.5.1",
