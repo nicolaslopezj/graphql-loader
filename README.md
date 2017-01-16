@@ -15,3 +15,9 @@ loadSchema({typeDefs, resolvers})
 
 const schema = makeExecutableSchema(getSchema())
 ```
+
+
+## Contributors
+
+- [@nicolaslopezj](https://github.com/nicolaslopezj)
+- [@hammadj](https://github.com/hammadj)
