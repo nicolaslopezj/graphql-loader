@@ -5,6 +5,8 @@ export default function () {
   const allTypesDefs = union(...global.allTypeDefs)
   const typeDefs = {}
   const scalars = []
+  const unions = []
+
 
   /* Search for all types */
   allTypesDefs.forEach(def => {
@@ -47,6 +49,23 @@ export default function () {
     }
   })
 
+  /* Search unions */
+  allTypesDefs.forEach(def => {
+    const regex = /union [\w ]+=[\w |]+/g
+    let m
+
+    while ((m = regex.exec(def)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++
+      }
+
+      m.forEach((match, groupIndex) => {
+        unions.push(match)
+      })
+    }
+  })
+
   let schema = ''
 
   keys(typeDefs).forEach(type => {
@@ -56,6 +75,10 @@ export default function () {
 
   scalars.forEach(scalar => {
     schema += `\n${scalar}\n`
+  })
+
+  unions.forEach(union => {
+    schema += `\n${union}\n`
   })
 
   return schema
