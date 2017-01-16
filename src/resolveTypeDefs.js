@@ -7,7 +7,6 @@ export default function () {
   const scalars = []
   const unions = []
 
-
   /* Search for all types */
   allTypesDefs.forEach(def => {
     const regex = /([A-z ]+){\n?(([^{}])+)}/g
