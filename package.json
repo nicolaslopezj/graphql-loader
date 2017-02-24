@@ -1,6 +1,6 @@
 {
   "name": "graphql-loader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "repository": "http://github.com/orionsoft/module",
   "author": "nicolaslopezj",
@@ -9,7 +9,7 @@
     "build": "babel ./src --out-dir ./lib",
     "prepublish": "npm run build",
     "test": "npm run lint && jest",
-    "watch": "watch npm\\ run\\ build ./src",
+    "watch": "node watch.js",
     "test-watch": "jest --watch",
     "lint": "standard \"src/**/*.js\""
   },

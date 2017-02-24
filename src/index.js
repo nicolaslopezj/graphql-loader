@@ -1,12 +1,10 @@
 import resolveTypeDefs from './resolveTypeDefs'
 import resolveResolvers from './resolveResolvers'
-
-global.allTypeDefs = []
-global.allResolvers = []
+import {allTypeDefs, allResolvers} from './store'
 
 export const loadSchema = function ({typeDefs, resolvers}) {
-  global.allTypeDefs.push(typeDefs)
-  global.allResolvers.push(resolvers)
+  allTypeDefs.push(typeDefs)
+  allResolvers.push(resolvers)
 }
 
 export const getSchema = function () {
