@@ -2,14 +2,20 @@ import resolveTypeDefs from './resolveTypeDefs'
 import resolveResolvers from './resolveResolvers'
 import {allTypeDefs, allResolvers} from './store'
 
-export const loadSchema = function ({typeDefs, resolvers}) {
-  allTypeDefs.push(typeDefs)
-  allResolvers.push(resolvers)
+if (!global.gqlLoader) {
+  const loadSchema = function ({typeDefs, resolvers}, origin) {
+    allTypeDefs.push(typeDefs)
+    allResolvers.push(resolvers)
+  }
+
+  const getSchema = function () {
+    return {
+      typeDefs: resolveTypeDefs(),
+      resolvers: resolveResolvers()
+    }
+  }
+  global.gqlLoader = {loadSchema, getSchema}
 }
 
-export const getSchema = function () {
-  return {
-    typeDefs: resolveTypeDefs(),
-    resolvers: resolveResolvers()
-  }
-}
+export const loadSchema = global.gqlLoader.loadSchema
+export const getSchema = global.gqlLoader.getSchema
