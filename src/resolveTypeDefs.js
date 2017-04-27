@@ -10,7 +10,7 @@ export default function () {
 
   /* Search for all types */
   allTypesDefs.forEach(def => {
-    const regex = /([A-z ]+){\n?(([^{}])+)}/g
+    const regex = /([A-z0-9 ,]+){\n?(([^{}])+)}/g
     let m
 
     while ((m = regex.exec(def)) !== null) {
