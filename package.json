@@ -2,7 +2,7 @@
   "name": "graphql-loader",
   "version": "1.2.1",
   "main": "lib/index.js",
-  "repository": "http://github.com/orionsoft/module",
+  "repository": "http://github.com/orionsoft/graphql-loader",
   "author": "nicolaslopezj",
   "license": "MIT",
   "scripts": {
